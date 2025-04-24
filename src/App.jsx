@@ -1,14 +1,22 @@
-
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import { LoadingScreen } from "./components/LoadingScreen";
+import "./index.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <>
-      
+      {!isLoading && (
+        <LoadingScreen
+          onComplete={() => {
+            setIsLoading(true);
+          }}
+        ></LoadingScreen>
+      )}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
